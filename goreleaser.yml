@@ -27,38 +27,6 @@ builds:
       - goos: darwin
         goarch: 386
 
-release:
-    extra_files:
-      - glob: ./bom.json
-    discussion_category_name: Announcements
-
-nfpms:
-  -
-    formats:
-      - deb
-      - rpm
-    vendor: "aquasecurity"
-    homepage: "https://github.com/aquasecurity"
-    maintainer: "Teppei Fukuda <knqyf263@gmail.com>"
-    description: "A Fast Vulnerability Scanner for Containers"
-    license: "Apache-2.0"
-    file_name_template: "{{.ProjectName}}_{{.Version}}_{{.Os}}-{{.Arch}}"
-    replacements:
-      amd64: 64bit
-      386: 32bit
-      arm: ARM
-      arm64: ARM64
-      ppc64le: PPC64LE
-      darwin: macOS
-      linux: Linux
-      openbsd: OpenBSD
-      netbsd: NetBSD
-      freebsd: FreeBSD
-      dragonfly: DragonFlyBSD
-    contents:
-     - src: contrib/*.tpl
-       dst: /usr/local/share/trivy/templates
-
 archives:
   -
     format: tar.gz
